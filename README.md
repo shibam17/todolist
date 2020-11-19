@@ -6,14 +6,14 @@ img: https://cloud-6zqjfjy52.vercel.app/0cover-img.png
 ---
 
 
-With front-end we can have limitless boud to our creativity. Then why not build a personal ***To-Do List***? This To-Do List will have your day to day things you want to do, not only that it will show which you have done or yet to do! Ofcourse, in the end you will also get to delete few which you have done or do not want it on the To-Do List any more.
+With front-end we can have limitless bound to our creativity. Then why not build a personal ***To-Do List***? This To-Do List will have your day to day things you want to do, not only that it will show which you have done or yet to do! Ofcourse, in the end you will also get to delete few which you have done or do not want it on the To-Do List any more.
 <p align='center'>
 <img src="https://media.giphy.com/media/UoLt6Tm8wlSnWGfSFs/giphy.gif" alt="yes-ready-to-code" >
 </p>
 
 ## Overview 
-In this workshop we will learn about HTML, CSS and JavaScript in a very fun and creative way which will give us an end product of personal **To-Do List**.
-This whole workshop is customizable on coders' wish! You can add different colors, animations, icons and more! So be ready to build this awesome project on your own and the best part is, it will only take you 20 mins to complete.:grin:
+In this workshop we will learn about HTML, CSS, and JavaScript in a very fun and creative way which will give us an end product of personal **To-Do List**.
+This whole workshop is customizable on coders' wish! You can add different colors, animations, icons and more! So be ready to build this awesome project on your own and the best part is, it will only take you 20 minutes to complete.:grin:
 
 
 *To have a peak in the project:*
@@ -31,16 +31,16 @@ One more thing is **create an account in Repl.it**.
 </p>
 
 ## Setting up IDE
-For this workshop we will be using repl.it as code editor. It is a free, online code editor which is very easy to use with instant online hosting service.
+For this workshop we will be using **repl.it** as code editor. It is a free, online code editor which is very easy to use with instant online hosting service.
 
 To start your coding right away navigate to [repl.it/languages/html](https://repl.it/languages/html) and you will have your whole setup. 
 
-You would see that there are already three files named 
+You would see that there are already three files named: 
 1.  index.html
 2.  script.js
 3.  style.css 
 
-for  HTML, JavaScript and CSS respectively. So we will work on them to build our To-Do List.
+for  HTML, JavaScript, and CSS respectively. So we will work on them to build our To-Do List.
 
 ![Initial-setup](https://cloud-f247ti7ln.vercel.app/0example-1.png)
 
@@ -53,12 +53,12 @@ HTML gives the structure to our web-page. Here in the first line, we have `<!DOC
 Inside the body of the file we will declare few tags, which will be useful for different purposes, such as
 - `header` to provide a name.
 - `input` to provide a place from where we will get the elements to put it on our list.
-- `div` with type `select` this will have options to sort the completed, incomplete and all the lists.
+- `div` with type `select` this will have options to sort the completed, incomplete, and all the lists.
 - Another `div` which will have `ul` tag which will get the values from JavaScript.
 
-```
 ***NOTE*** 
 Link fontawesome in the `head` of the HTML file to get access to icons.
+```html
 <link
 
 rel="stylesheet"
@@ -67,7 +67,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css
 
 />
 ```
-In case if you get stuck take reference from the below text
+In case if you get stuck take reference from the below text:
 ```html
 <body>
     <div class="message">
@@ -97,7 +97,7 @@ In case if you get stuck take reference from the below text
     <script src="./app.js"></script>
   </body>
   ```
-  ^ In the above code I have used an icon for a down arrow to activate display the drop-down option of sorting the list.
+  ^ In the above code, we have used an icon for a down arrow to activate display the drop-down option of sorting the list.
 We have completed HTML part successfully.😍😍
 
 ## The CSS file 
@@ -289,7 +289,7 @@ In the above code :point_up: we added **elements** and **classes** then appended
 
 **NOTE**: We will also wrap up the _COMPLETE_ section in this function too. Meaning, we will include the function to happen when someone click on the check button/icon.
 
-Since we already added our event listeners, now we have to first check that the user clicked on which icon, to do this we will use `e.target` method and save it in a variable. Once we get it we will implement a conditional rendering for both delete and check button.
+Since we already added our event listeners, now we have to first check that the user clicked on which icon, to do this we will use `e.target` method and save it in a variable. Once we get it, we will implement a conditional rendering for both delete and check button.
 
 ```javascript
 const item = e.target;
@@ -309,9 +309,9 @@ const item = e.target;
 ```
 
 In the above code :point_up:, there are few things happening:
-- We checked weather the user clicked on trash button or not, but using `item.classList[0] === "trash-btn"` inside an _if_ statement. 
-- We added the class `fall` which will trigger the transition which we added in the CSS
-- Finally we remove that tag **BUT** only after when the transitioned is complete and to check that we put up another function with an event `transitioned` which will make the function with `.remove()` method in action after the transitioned is done.
+- We checked whether the user clicked on trash button or not, by using `item.classList[0] === "trash-btn"` inside an _if_ statement. 
+- We added the class `fall` which will trigger the transition that we added in the CSS.
+- Finally we removed that tag **BUT** only after when the transitioned is complete and to check that we put up another function with an event `transitioned` which will make the function with `.remove()` method in action after the transitioned is done.
 
 **For marking complete**
 ```javascript
@@ -320,7 +320,7 @@ In the above code :point_up:, there are few things happening:
     todo.classList.toggle("completed");
   }
   ```
-  In the above code we did not do much only just added the class of `completed` to the parent element.
+  In the above code, we did not do much only just added the class of `completed` to the parent element.
 
 The result till now! :star:
 
@@ -328,9 +328,9 @@ The result till now! :star:
  
    #### 3.3 Filtering the To-Do List
   
-So this will be the last thing we will implement, which is sorting the list into complete, incomplete and all the lists.
+So, this will be the last thing we will implement, which is sorting the list into complete, incomplete, and all the lists.
 
-Here also we will create a function which will get triggered by the selection box we have in HTML.
+Here, also we will create a function which will get triggered by the selection box we have in HTML.
 
 Create a function `filterTodo` inside that create a switch statement which will have the parameter equals to **the option we chose** from the box.
 
@@ -362,9 +362,9 @@ function filterTodo(e) {
   });
 ```
 
-Here we have three cases each has their own functionality to display and hide elements from the list. In addition to that there we also added style using `.style.`followed by property `display` and then the styling value which `flex` in this case.
+Here we have three cases each has their own functionality to display and hide elements from the list. In addition to that, we also added style using `.style.`followed by property `display` and then the styling value which `flex` in this case.
 
-You can notice that all the functions have kind of same structure, like passing parameters, adding elements and classes and using conditional rendering.
+You can notice that all the functions have kind of same structure, like passing parameters, adding elements & classes, and using conditional rendering.
 
 There you go we are done with our JavaScript part too! 
 
