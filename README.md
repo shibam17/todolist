@@ -1,4 +1,4 @@
-With front-end we can have limitless boud to our creativity. Then why not build a personal ** _To-Do List_ **? This To-Do List will have your day to day things you want to do, not only that it will show which you have done or yet to do! Ofcourse, in the end you will also get to delete few which you have done or do not want it on the To-Do List any more.
+With front-end we can have limitless boud to our creativity. Then why not build a personal ***To-Do List***? This To-Do List will have your day to day things you want to do, not only that it will show which you have done or yet to do! Ofcourse, in the end you will also get to delete few which you have done or do not want it on the To-Do List any more.
 <p align='center'>
 <img src="https://media.giphy.com/media/UoLt6Tm8wlSnWGfSFs/giphy.gif" alt="yes-ready-to-code" >
 </p>
