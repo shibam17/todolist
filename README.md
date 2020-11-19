@@ -24,7 +24,7 @@ So let's get started now with this!:nerd_face:
 
 **Prerequisite**
 Little bit of knowledge on events and event handling on JavaScript along with animation through CSS can make your work easier but the best part is, even if you are new to this, you can still make it a go without any problem because this workshop will begin with level 0 for better understanding of this domain.:sparkles:
-One more this is **create an account in Repl.it**.
+One more thing is **create an account in Repl.it**.
 
 <p align='center'>
 <img width="300" alt="excited" src="https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif">
