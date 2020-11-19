@@ -33,7 +33,8 @@ You would see that there are already three files named
 3.  style.css 
 
 for  HTML, JavaScript and CSS respectively. So we will work on them to build our To-Do List.
-![](hedhjkedhed.com)=================================
+
+![Initial-setup](https://cloud-f247ti7ln.vercel.app/0example-1.png)
 
 ^ Right now your page will look like this.
 
@@ -162,7 +163,9 @@ To add animation effect to any class there are two things:
 ^ In the above code `translate` means that it will move towards a direction, `Y` says the which direction it will move, here it is Y-Axis and then the `%value in ()` tells that how much to move. 
 The effect can be viewed when we will link it with proper functioning JavaScript.
  Up till now your project should be looking like this :smile:.
- ![]()================================================= =========================================
+ 
+ ![project-after-css](https://cloud-acoldgo90.vercel.app/0example-2.png)
+ 
  ## The JavaScript file
  First of all well done! :sunglasses: for coming this far. 
 
@@ -179,4 +182,142 @@ We will be diving this into three parts:
 3.3 Filtering List
 
 ### 1. The selectors
+
+First thing is that we need to select the tags, classes or ids (if provided) from the HTML file to target them and do work with them. This will make easier to put event listeners and functions to them.
+
+To get this done we will first declare a `const`variable and use `document.querySelector(_className_)`.
+
+Have a look here :point_down:
+```javascript
+// selectors
+const todoInput = document.querySelector(".todo-input ");
+const todoButton = document.querySelector(".todo-button ");
+const todoList = document.querySelector(".todo-list "); 
+//gets the whole added list including details and buttons
+const filterOption = document.querySelector(".filter-todo");
+const message = document.querySelector(".message");
+```
+### 2. The event listeners
+Now that we got the selectors, we can add event listeners to them. Event listeners are used to put some event or actions to a section of HTML file. Such as, performing a function on a click of mouse, this is also an event. So here also we will add events. 
+
+To do this we will use the selector name and put `.addEventListener()`, inside the apprentices we will first provide ***event** followed by function we want to call on that event.
+There are many types of events, we will use here the `click` event.
+
+Have a look here :point_down:
+```javascript
+//event listeners
+todoButton.addEventListener("click", addTodo);
+todoList.addEventListener("click", deleteCheck);
+filterOption.addEventListener("click", filterTodo);
+```
+
+In the above code I called three functions for the working of this To-Do List. Now we will discuss them and implement them.
+
+### 3. The functions
+
+Here we will work on how we will get the data, then input it and event sort them. Do not panic, :sunglasses: it sounds much but we will go through it in a blink. 
+
+So lets discuss which all functions we will need and more importantly what these will do.
+
+#### 3.1 Adding To-Do List
+We will include a function named `addTodo` which will get the data from the `input` section from the HTML.  
+Once we get the data from the HTML we have to proceed with few things in mind.
+- We have create a `div` element. This can be done easily with methods in JavaScript. When we want to create an element using JavaScript we use `document.createElement()`, inside the apprentices we provide the tag we want to include, such as `"div"`, `"li"` and more.
+- Then we have to add class name with the help of JavaScript. For this there is a method of `.classList.add()`, inside the apprentices we need to provide the class name. **( The class names can be also be used to add icons :wink:)**
+-  Last thing is to append it, which mean to add all of the things in a sequential manner inside the HTML file with the help of JavaScript. We use `.appendChild()` method with the part we want to include inside the apprentices.
+
+**NOTE**: There is a thing which might create some problem for you, which is that when you press `ENTER` button, the page gets reload, to prevent this use `parameterName.preventDefault()`.
+
+Look at the code here you will get the hung of it. :point_down:
+
+```javascript
+function addTodo(event) {
+  //prevent from submitting (from refresh)
+  event.preventDefault();
+```
+```javascript
+    // todo div
+    const todoDiv = document.createElement("div");
+    todoDiv.classList.add("todo");
+    //create LI
+    const newTodo = document.createElement("li");
+    newTodo.innerText = todoInput.value;
+    newTodo.classList.add("todo-item");
+    todoDiv.appendChild(newTodo);
+```
+In the above code :point_up: we added **elements** and **classes** then appended them.
+
+```javascript
+    //check mark
+    const completedButton = document.createElement("button");
+    completedButton.innerHTML = '<i class= "fas fa-check"></i>';
+    completedButton.classList.add("complete-btn");
+    todoDiv.appendChild(completedButton);
+    //trash mark
+    const trashButton = document.createElement("button");
+    trashButton.innerHTML = '<i class= "fas fa-trash"></i>';
+    trashButton.classList.add("trash-btn");
+    todoDiv.appendChild(trashButton);
+```
+ In the above code :point_up:, the buttons/icons of trash and check is included.
+ 
+```javascript
+    //append to todo-list
+    todoList.appendChild(todoDiv);
+
+    //clear todo input value
+    todoInput.value = "";
+   }
+```
+   #### 3.2 Deleting from To-Do List
+   So now, we will handle the part where in case the user wants to delete the list after he is done or wishes to change it. In the previous section when we added the trash button/icon, now it is time to put that in use!
+ 
+ Just like before, we will create another function with the name we put in the event listeners that is `deleteCheck` and we will pass a parameter along with it let it be `e`.
+ So the function would look like:
+ ```javascript
+ function deleteCheck(e){
+ }
+ ```
+
+**NOTE**: We will also wrap up the _COMPLETE_ section in this function too. Meaning, we will include the function to happen when someone click on the check button/icon.
+
+Since we already added our event listeners, now we have to first check that the user clicked on which icon, to do this we will use `e.target` method and save it in a variable. Once we get it we will implement a conditional rendering for both delete and check button.
+
+```javascript
+const item = e.target;
+```
+**For deleting**
+```javascript
+//delete todo
+  if (item.classList[0] === "trash-btn") {
+    const todo = item.parentElement; 
+    //to get the whole parent element
+    //animation
+    todo.classList.add("fall");
+    todo.addEventListener("transitionend", function () {
+      todo.remove();
+    });
+  }
+```
+
+In the above code :point_up:, there are few things happening:
+- We checked weather the user clicked on trash button or not, but using `item.classList[0] === "trash-btn"` inside an _if_ statement. 
+- We added the class `fall` which will trigger the transition which we added in the CSS
+- Finally we remove that tag **BUT** only after when the transitioned is complete and to check that we put up another function with an event `transitioned` which will make the function with `.remove()` method in action after the transitioned is done.
+
+**For marking complete**
+```javascript
+ if (item.classList[0] === "complete-btn") {
+    const todo = item.parentElement;
+    todo.classList.toggle("completed");
+  }
+  ```
+  In the above code we did not do much only just added the class of `completed` to the parent element.
+
+The result till now! :star:
+
+![The-workshop-with-functionalities](https://cloud-gziuv78qw.vercel.app/0ma_2.gif)
+ 
+   #### 3.3 Filtering the To-Do List
+  
 
