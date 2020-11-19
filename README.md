@@ -320,4 +320,59 @@ The result till now! :star:
  
    #### 3.3 Filtering the To-Do List
   
+So this will be the last thing we will implement, which is sorting the list into complete, incomplete and all the lists.
+
+Here also we will create a function which will get triggered by the selection box we have in HTML.
+
+Create a function `filterTodo` inside that create a switch statement which will have the parameter equals to **the option we chose** from the box.
+
+See the code here :point_down:
+```javascript
+function filterTodo(e) {
+  const todos = todoList.childNodes;
+  todos.forEach(function (todo) {
+    //   console.log(todo)
+    switch (e.target.value) {
+      case "all":
+        todo.style.display = "flex ";
+        break;
+      case "completed":
+        if (todo.classList.contains("completed")) {
+          todo.style.display = "flex";
+        } else {
+          todo.style.display = "none";
+        }
+        break;
+      case "uncompleted":
+        if (!todo.classList.contains("completed")) {
+          todo.style.display = "flex";
+        } else {
+          todo.style.display = "none";
+        }
+        break;
+    }
+  });
+```
+
+Here we have three cases each has their own functionality to display and hide elements from the list. In addition to that there we also added style using `.style.`followed by property `display` and then the styling value which `flex` in this case.
+
+You can notice that all the functions have kind of same structure, like passing parameters, adding elements and classes and using conditional rendering.
+
+There you go we are done with our JavaScript part too! 
+
+## Congratulation!
+
+<p align='center'>
+<img src="https://media.giphy.com/media/xT8qBvaQSR3Lk0jLl6/giphy.gif" alt="yes-ready-to-code" >
+</p>
+
+The **To-Do List** is now fully functional!
+If you haven't created an account on repl.it yet, I highly recommend doing so! Otherwise your project will be deleted after 24 hours.
+
+Well do not stop here! There are many things you can do to with your To-Do List.
+- Add an alert when someone tried to put in empty value.
+- Try to store the data in local system.
+- Sort them and keep them separate on the basis of time and date.
+
+## Creativity show by other Hackers!
 
