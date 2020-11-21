@@ -18,7 +18,7 @@ This whole workshop is customizable on coders' wish! You can add different color
 
 *To have a peak in the project:*
 * Final code can be found on [Repl.it](https://repl.it/@shibamdhar/todolist) as well as [GitHub](https://github.com/shibam17/todolist).
-* The demo of my music app will be [here](https://todolist.shibamdhar.repl.co/).
+* The demo of my To-Do List will be [here](https://todolist.shibamdhar.repl.co/).
 
 So let's get started now with this!:nerd_face:
 
