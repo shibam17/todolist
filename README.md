@@ -1,9 +1,3 @@
----
-name: 'To-Do List with JavaScript'
-description: 'Build your own To-Do List with Vanilla JavaScript.'
-author: '@shibam17'
-img: https://cloud-6zqjfjy52.vercel.app/0cover-img.png
----
 
 
 With front-end we can have limitless bound to our creativity. Then why not build a personal ***To-Do List***? This To-Do List will have your day to day things you want to do, not only that it will show which you have done or yet to do! Ofcourse, in the end you will also get to delete few which you have done or do not want it on the To-Do List any more.
